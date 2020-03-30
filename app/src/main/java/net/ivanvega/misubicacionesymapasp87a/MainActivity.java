@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean requestingLocationUpdates=true;
 
     public void click(View v){
-
+        startActivity(new Intent(getApplicationContext(), MapsActivity.class));
     }
     private LocationCallback locationCallback = new LocationCallback() {
         @Override
