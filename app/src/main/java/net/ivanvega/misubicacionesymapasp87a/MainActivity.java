@@ -22,6 +22,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -103,7 +104,17 @@ public class MainActivity extends AppCompatActivity {
                 // ...
                 Log.i("PRUEBA", locationSettingsResponse.toString());
                 Toast.makeText(MainActivity.this, locationSettingsResponse.toString(),
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show(
+
+                );
+                LocationSettingsStates locationSettingsStates = locationSettingsResponse.getLocationSettingsStates();
+                locationSettingsStates.isBlePresent();
+                locationSettingsStates.isBleUsable();
+                locationSettingsStates.isGpsPresent();
+                locationSettingsStates.isGpsUsable();
+                locationSettingsStates.isLocationUsable();
+                locationSettingsStates.isNetworkLocationPresent();
+
                 requestingLocationUpdates = true;
 
             }
